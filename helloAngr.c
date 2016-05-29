@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+#define PASSWORD_SIZE 10
+
 void almostWin(char *);
 void fail();
 void win(char *);
@@ -22,8 +24,8 @@ int main(int argc, char * argv[])
 	}
 
 	char *password;
-	password = malloc(10);
-	strncat(password, argv[1], 10);
+	password = calloc(PASSWORD_SIZE + 1, sizeof(char));
+	strncat(password, argv[1], PASSWORD_SIZE);
 
 	if ((password[4] ^ password[1]) + password[6] == password[2])
 	{
